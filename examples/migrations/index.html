@@ -1,0 +1,31 @@
+<!DOCTYPE htmL>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+<script src="../../gen/indexeddb-schema.js"></script>
+<script>
+
+// create a db
+// IDB = IndexedDBBackbone.
+IDBSchema.describe('movies-db')
+  .createStore('movies')
+  .createStore('torrents', {keyPath: 'id'})
+  .createIndex('movies', 'actorsIndex', 'actors.name', {keyPath: 'id'})
+  .dropIndex('sdfsdf')
+  .migrate(function(transaction) {
+    
+  })
+
+
+
+// insert some records
+
+// get new schema
+
+// insert some more records
+
+</script>
+</body>
+</html>

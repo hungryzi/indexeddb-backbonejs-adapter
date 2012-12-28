@@ -2,6 +2,7 @@
 databasev1 = {
   id: "movies-database"
   description: "The database for the Movies"
+  nolog: false
   migrations: [{
     version: 1
     migrate: (transaction, next) ->
@@ -60,9 +61,16 @@ window.Theater = Backbone.Collection.extend({
   model: Movie
 })
 
+window.PirateBay = Backbone.Collection.extend({
+  database: databasev3
+  storeName: "torrents"
+  model: Torrent
+})
+
 window.testDone = -> window.asyncTestDone = true
 
 window.asyncTest = (test) ->
+  window.asyncTestDone = false
   runs test
   waitsFor (-> window.asyncTestDone), "test to finish", 500
 
